@@ -43,11 +43,11 @@ h1{
 button{
     align-self: center;
     margin-top: 10px;
-    background-color: rgb(115, 31, 224);
+    background-color: #731fe0;
     border: none;
     border-radius: 5px;
     padding: 5px;
     color: #ffffff;
-    font-size: 15px;
+    font-size: 16px;
     width: 120px;
 }
