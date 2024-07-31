@@ -26,9 +26,9 @@ console.log(username,userpassword)
 <div className="login-container">
 <form className="container" onSubmit={onSubmitForm}>
   <h1 className="">LOGIN</h1>
-<label className="lable-element" htmlFor="username">Username</label>
+<label className="lable-element" htmlFor="username">USERNAME</label>
 <input type="text" id="username" placeholder="Enter user name..." className="input-element" onChange={onChangeusername}/>
-<label className="lable-element" htmlFor="password">Password</label>
+<label className="lable-element" htmlFor="password">PASSWORD</label>
 <input type="password" id="password" placeholder="Enter user password..." className="input-element" onChange={onChangepassword}/>
 <button type="submit">Login</button>
 </form>
