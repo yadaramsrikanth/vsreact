@@ -1,16 +1,39 @@
 import React from 'react';
 
-import {useState} from "react"
+import {useState,useEffect} from "react"
 import "./App.css"
 
 const App =()=>{
 
   const [username,setusername]=useState("")
   const [userpassword,setuserpassword]=useState("")
-console.log(username,userpassword)
-  const onSubmitForm=(event)=>{
+ 
+
+  const onSubmitForm=async (event)=>{
       event.preventDefault()
+     
   }
+
+const getData=async()=>{
+  const api=await fetch("https://login-user-details.vercel.app/")
+  const apiresponse=await api.json()
+  console.log(apiresponse)
+  
+}
+
+  useEffect(()=>{
+    getData()
+  },[])
+
+
+
+
+
+
+
+  
+
+
 
   const onChangeusername=(event)=>{
       setusername(event.target.value)
@@ -27,11 +50,12 @@ console.log(username,userpassword)
 <form className="container" onSubmit={onSubmitForm}>
   <h1 className="">LOGIN</h1>
 <label className="lable-element" htmlFor="username">USERNAME</label>
-<input type="text" id="username" placeholder="Enter user name.." className="input-element" onChange={onChangeusername}/>
+<input value={username} type="text" id="username" placeholder="Enter user name.." className="input-element" onChange={onChangeusername}/>
 <label className="lable-element" htmlFor="password">PASSWORD</label>
-<input type="password" id="password" placeholder="Enter user password.." className="input-element" onChange={onChangepassword}/>
+<input value={userpassword} type="password" id="password" placeholder="Enter user password.." className="input-element" onChange={onChangepassword}/>
 <button type="submit">Login</button>
 </form>
+
 
 </div>
 
