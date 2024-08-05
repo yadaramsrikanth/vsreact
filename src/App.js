@@ -7,17 +7,30 @@ const App =()=>{
 
   const [username,setusername]=useState("")
   const [userpassword,setuserpassword]=useState("")
- 
+  const [data,setdata]=useState([])
+
+  console.log(data)
 
   const onSubmitForm=async (event)=>{
       event.preventDefault()
-     
+      const userDetails={username:username,password:userpassword}
+      const apiurl="https://login-user-details.vercel.app/login"
+      const options={method:"POST",
+        headers:{
+          "Content-Type":"Application/json"
+        },
+        body:JSON.stringify(userDetails),
+        }
+        
+      const createresponse=await fetch(apiurl,options)
+      console.log(createresponse)  
+        
   }
 
 const getData=async()=>{
   const api=await fetch("https://login-user-details.vercel.app/")
   const apiresponse=await api.json()
-  console.log(apiresponse)
+  setdata(apiresponse)
   
 }
 
