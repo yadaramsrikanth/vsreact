@@ -17,13 +17,15 @@ const App =()=>{
       const apiurl="https://login-user-details.vercel.app/login"
       const options={method:"POST",
         headers:{
-          "Content-Type":"Application/json"
+          "Content-Type":"application/json",
+         
         },
         body:JSON.stringify(userDetails),
         }
         
       const createresponse=await fetch(apiurl,options)
-      console.log(createresponse)  
+      const responsereceived=await createresponse.json()
+      console.log(responsereceived)  
         
   }
 
