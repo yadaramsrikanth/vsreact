@@ -9,13 +9,13 @@ const App =()=>{
   const [userpassword,setuserpassword]=useState("")
   const [data,setdata]=useState("")
 
-  console.log(data)
+  //console.log(data)
 
   const onSubmitForm=async (event)=>{
       event.preventDefault()
       const userDetails={username:username,password:userpassword}
       const apiurl="https://login-user-details.vercel.app/login"
-      const options={method:"POST",
+      const options={mode:'no-cors',method:"POST",
         headers:{
           "Content-Type":"application/json",
          
