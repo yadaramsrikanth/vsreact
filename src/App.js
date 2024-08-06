@@ -15,7 +15,7 @@ const App =()=>{
       event.preventDefault()
       const userDetails={username:username,password:userpassword}
       const apiurl="https://login-user-details.vercel.app/login"
-      const options={mode:'no-cors',method:"POST",
+      const options={method:"POST",
         headers:{
           "Content-Type":"application/json",
          
@@ -24,14 +24,15 @@ const App =()=>{
         }
         
       const createresponse=await fetch(apiurl,options)
-      //console.log(createresponse)
+      console.log(createresponse)
       if (createresponse.ok){
         const responsereceived=await createresponse.json()
         console.log(responsereceived)
         
       }else{
         const responsereceived=await createresponse.json()
-      setdata(responsereceived)
+        console.log(responsereceived)
+        setdata(responsereceived)
       }
       
       setusername("")
