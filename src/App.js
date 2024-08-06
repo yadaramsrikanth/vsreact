@@ -1,13 +1,13 @@
 import React from 'react';
 
-import {useState,useEffect} from "react"
+import {useState} from "react"
 import "./App.css"
 
 const App =()=>{
 
   const [username,setusername]=useState("")
   const [userpassword,setuserpassword]=useState("")
-  const [data,setdata]=useState([])
+  const [data,setdata]=useState("")
 
   console.log(data)
 
@@ -24,21 +24,20 @@ const App =()=>{
         }
         
       const createresponse=await fetch(apiurl,options)
-      const responsereceived=await createresponse.json()
-      console.log(responsereceived)  
+      //console.log(createresponse)
+      if (createresponse.ok){
+        const responsereceived=await createresponse.json()
+        console.log(responsereceived)
         
+      }else{
+        const responsereceived=await createresponse.json()
+      setdata(responsereceived)
+      }
+      
+      setusername("")
+      setuserpassword("")
   }
 
-const getData=async()=>{
-  const api=await fetch("https://login-user-details.vercel.app/")
-  const apiresponse=await api.json()
-  setdata(apiresponse)
-  
-}
-
-  useEffect(()=>{
-    getData()
-  },[])
 
 
 
@@ -70,7 +69,7 @@ const getData=async()=>{
 <input value={userpassword} type="password" id="password" placeholder="Enter user password.." className="input-element" onChange={onChangepassword}/>
 <button type="submit">Login</button>
 </form>
-
+<p>{data.userNameError}</p>
 
 </div>
 
