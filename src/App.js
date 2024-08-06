@@ -1,15 +1,18 @@
 import React from 'react';
 
 import {useState} from "react"
+
+
+
 import "./App.css"
 
 const App =()=>{
 
   const [username,setusername]=useState("")
   const [userpassword,setuserpassword]=useState("")
-  const [data,setdata]=useState("")
-
-  //console.log(data)
+  const [data,setdata]=useState('')
+  
+  console.log(data)
 
   const onSubmitForm=async (event)=>{
       event.preventDefault()
@@ -45,7 +48,6 @@ const App =()=>{
 
 
 
-
   
 
 
@@ -58,6 +60,10 @@ const App =()=>{
   const onChangepassword=event=>{
     setuserpassword(event.target.value)
   }
+
+  
+
+
 
 
   return <div className="main-login-container">
